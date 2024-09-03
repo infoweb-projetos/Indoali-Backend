@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable,  BadRequestException } from '@nestjs/common';
 import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
 import { PersistenciaService } from 'src/persistencia/persistencia.service';
@@ -11,6 +11,23 @@ export class UsuariosService {
   constructor(private persistencia: PersistenciaService) {}
 
   async create(createUsuarioDto: CreateUsuarioDto) {
+
+    const existingUserByEmail = await this.persistencia.usuario.findUnique({
+      where: { email: createUsuarioDto.email },
+    });
+  
+    if (existingUserByEmail) {
+      throw new BadRequestException('Email já está em uso');
+    }
+  
+    const existingUserByUsername = await this.persistencia.usuario.findUnique({
+      where: { userName: createUsuarioDto.userName },
+    });
+  
+    if (existingUserByUsername) {
+      throw new BadRequestException('Nome de usuário já está em uso');
+    }
+
     const hashedPassword = await bcrypt.hash(
       createUsuarioDto.senha,
       roundsOfHashing,

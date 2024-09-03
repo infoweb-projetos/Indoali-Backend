@@ -15,7 +15,7 @@ export const jwtSecret = 'viadinhos@if';
     PassportModule,
     JwtModule.register({
       secret: 'viadinhos@if', //jwtSecret
-      signOptions: { expiresIn: '24h' }, // 60, 60m, 24h, 7d
+      signOptions: { expiresIn: '7d' }, // 60, 60m, 24h, 7d
     }),
     UsuariosModule,
   ],
