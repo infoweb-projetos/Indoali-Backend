@@ -17,3 +17,10 @@ model Usuario {
   userName        String   @unique
   senha           String
 }
+
+model Lugare {
+  id              Int      @id @default(autoincrement())
+  descricao       String?
+  name            String
+  endereco        String   
+}

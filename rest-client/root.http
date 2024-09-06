@@ -14,7 +14,7 @@ POST http://localhost:3000/auth/login/
 content-type: application/json
 
 {
-  "email": "joao@email.com",
+  "email": "ro@ger",
   "senha": "123"
 }
 
@@ -35,8 +35,8 @@ content-type: application/json
 }
 
 ### DELETE apagar o usuario pelo id
-DELETE http://localhost:3000/usuarios/5
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjUsImlhdCI6MTcyNTIwMDE5NiwiZXhwIjoxNzI1MjAwNDk2fQ.5OtyBlcVS83VTA6pek_G2SczsWVc9qPxNuIXdxFco-Y
+DELETE http://localhost:3000/usuarios/9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjksImlhdCI6MTcyNTY0ODc1NiwiZXhwIjoxNzI2MjUzNTU2fQ.kKSKlxr1v7z74LeFXQd94zYBRtpWDe3N1QswoEfX9rA
 content-type: application/json
 
 {
@@ -50,3 +50,14 @@ content-type: application/json
 ### GET obter os dados do usuario pelo id
 GET http://localhost:3000/usuarios/profile/4
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjQsImlhdCI6MTcyNTIyNDQ5NSwiZXhwIjoxNzI1MjI0Nzk1fQ.R_Y5RJprhGXmRBQE8U_8QQiVJ4Vkz7OgqHLIMUV1FlA
+
+
+### 
+POST http://localhost:3000/lugares
+content-type: application/json
+
+{
+  "descricao": "tem de queijo tem de frango tem de pizza",
+  "name": "pastel paulistano",
+  "endereco": "ruaserradotombador"
+}
