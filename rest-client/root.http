@@ -51,8 +51,13 @@ content-type: application/json
 GET http://localhost:3000/usuarios/profile/4
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjQsImlhdCI6MTcyNTIyNDQ5NSwiZXhwIjoxNzI1MjI0Nzk1fQ.R_Y5RJprhGXmRBQE8U_8QQiVJ4Vkz7OgqHLIMUV1FlA
 
+### GET obter lugar de id 1
+GET http://localhost:3000/lugares/1
 
-### 
+### GET obter todos os lugares
+GET http://localhost:3000/lugares
+
+### POST criar lugar
 POST http://localhost:3000/lugares
 content-type: application/json
 
@@ -61,3 +66,17 @@ content-type: application/json
   "name": "pastel paulistano",
   "endereco": "ruaserradotombador"
 }
+
+### PATCH alterar lugar
+PATCH http://localhost:3000/lugares/1
+content-type: application/json
+
+{
+  "descricao": "pastel chocolate",
+  "name": "saltnor alementos",
+  "endereco": "i efe erre ene"
+}
+
+### DELETE apagar lugar
+DELETE http://localhost:3000/lugares/3
+content-type: application/json
