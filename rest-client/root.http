@@ -14,24 +14,23 @@ POST http://localhost:3000/auth/login/
 content-type: application/json
 
 {
-  "email": "ro@ger",
+  "email": "ho@mail",
   "senha": "123"
 }
 
 ### GET obter os dados do usuario pelo id
-GET http://localhost:3000/usuarios/4
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjQsImlhdCI6MTcyNTIyNTA0NywiZXhwIjoxNzI1MzExNDQ3fQ.n1CDndKJcBTvZ6OdfnzWLGR-3PqFViwAFm0sGuftZrg
+GET http://localhost:3000/usuarios/5
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjUsImlhdCI6MTcyNTIwMDE5NiwiZXhwIjoxNzI1MjAwNDk2fQ.5OtyBlcVS83VTA6pek_G2SczsWVc9qPxNuIXdxFco-Y
 
 ### PATCH atualizar o usuario pelo id
 PATCH http://localhost:3000/usuarios/5
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjUsImlhdCI6MTcyNTIwMDE5NiwiZXhwIjoxNzI1MjAwNDk2fQ.5OtyBlcVS83VTA6pek_G2SczsWVc9qPxNuIXdxFco-Y
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjEsImlhdCI6MTcyNjUzMzY1NiwiZXhwIjoxNzI3MTM4NDU2fQ.6dmC2P1Nx3p2YsOGITvqAWVH6g9qrHezc-FZCH6pgkc
 content-type: application/json
 
 {
   "name": "Luzia Varelhas Cruzeta",
   "userName": "chuu",
   "email": "cus@cuz",
-  "senha": "123"
 }
 
 ### DELETE apagar o usuario pelo id

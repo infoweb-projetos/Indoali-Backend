@@ -66,12 +66,39 @@ export class UsuariosService {
 
   async update(id: number, updateUsuarioDto: UpdateUsuarioDto) {
 
-    if (updateUsuarioDto.senha) {
-        updateUsuarioDto.senha = await bcrypt.hash(
-        updateUsuarioDto.senha,
-        roundsOfHashing,
-      );
-    }
+    // if (updateUsuarioDto.senha) {
+    //     updateUsuarioDto.senha = await bcrypt.hash(
+    //     updateUsuarioDto.senha,
+    //     roundsOfHashing,
+    //   );
+    // }
+
+    //console.log(updateUsuarioDto)
+    //console.log(id)
+
+    const existingUserByEmail = await this.persistencia.usuario.findUnique({
+      where: { email: updateUsuarioDto.email },
+    });
+  
+    if (existingUserByEmail) {
+      if (id != existingUserByEmail.id) {
+        throw new BadRequestException('Email já está em uso');
+      }
+      //console.log(updateUsuarioDto.email)
+      //console.log(existingUserByEmail.email)
+    };
+  
+    const existingUserByUsername = await this.persistencia.usuario.findUnique({
+      where: { userName: updateUsuarioDto.userName },
+    });
+  
+    if (existingUserByUsername) {
+      if (id != existingUserByUsername.id) {
+        throw new BadRequestException('Nome de usuário já está em uso');
+      }
+      //console.log(updateUsuarioDto.userName)
+      //console.log(existingUserByUsername.userName)
+    };
 
     return this.persistencia.usuario.update({
       where: { id },
