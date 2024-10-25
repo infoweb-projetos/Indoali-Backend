@@ -24,3 +24,16 @@ model Lugare {
   name            String
   endereco        String   
 }
+
+model Favorito {
+  id              Int      @id @default(autoincrement())
+  id_usuario      Int      
+  id_lugar        Int      
+}
+
+model Amizade {
+  id              Int      @id @default(autoincrement())
+  id_emissor      Int      
+  id_receptor     Int      
+  aceito          Boolean  
+}
