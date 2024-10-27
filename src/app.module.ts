@@ -7,7 +7,6 @@ import { AuthModule } from './auth/auth.module';
 import { LugaresModule } from './lugares/lugares.module';
 import { FavoritosModule } from './favoritos/favoritos.module';
 import { AmizadesModule } from './amizades/amizades.module';
-import { FavoritosModule } from './favoritos/favoritos.module';
 
 @Module({
   imports: [PersistenciaModule, UsuariosModule, AuthModule, LugaresModule, FavoritosModule, AmizadesModule],

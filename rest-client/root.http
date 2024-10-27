@@ -76,6 +76,80 @@ content-type: application/json
   "endereco": "i efe erre ene"
 }
 
-### DELETE apagar lugar
-DELETE http://localhost:3000/lugares/3
+
+
+### DELETE apagar favorito
+DELETE http://localhost:3000/favoritos/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjEsImlhdCI6MTcyOTk3MTQzMywiZXhwIjoxNzMwNTc2MjMzfQ.eDQnbNgSM6cFwV9yf8pCQCOrLKn43A50mYUnAmToOc0
 content-type: application/json
+
+### GET obter favorito de id 1
+GET http://localhost:3000/favoritos/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjEsImlhdCI6MTcyOTk3MTQzMywiZXhwIjoxNzMwNTc2MjMzfQ.eDQnbNgSM6cFwV9yf8pCQCOrLKn43A50mYUnAmToOc0
+
+### GET obter todos os favoritos do usuario de id 1
+GET http://localhost:3000/favoritos/usuario/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjEsImlhdCI6MTcyOTk3MTQzMywiZXhwIjoxNzMwNTc2MjMzfQ.eDQnbNgSM6cFwV9yf8pCQCOrLKn43A50mYUnAmToOc0
+
+### GET obter todos os favoritos
+GET http://localhost:3000/favoritos
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjEsImlhdCI6MTcyOTk3MTQzMywiZXhwIjoxNzMwNTc2MjMzfQ.eDQnbNgSM6cFwV9yf8pCQCOrLKn43A50mYUnAmToOc0
+
+### POST criar favorito
+POST http://localhost:3000/favoritos
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjEsImlhdCI6MTcyOTk3MTQzMywiZXhwIjoxNzMwNTc2MjMzfQ.eDQnbNgSM6cFwV9yf8pCQCOrLKn43A50mYUnAmToOc0
+content-type: application/json
+
+{
+  "id_usuario": 1,
+  "id_lugar": 1
+}
+
+### DELETE apagar favorito
+DELETE http://localhost:3000/favoritos/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjEsImlhdCI6MTcyOTk3MTQzMywiZXhwIjoxNzMwNTc2MjMzfQ.eDQnbNgSM6cFwV9yf8pCQCOrLKn43A50mYUnAmToOc0
+content-type: application/json
+
+
+
+### DELETE apagar amizade
+DELETE http://localhost:3000/amizades/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjEsImlhdCI6MTcyOTk3MTQzMywiZXhwIjoxNzMwNTc2MjMzfQ.eDQnbNgSM6cFwV9yf8pCQCOrLKn43A50mYUnAmToOc0
+content-type: application/json
+
+### GET obter amizade de id 1
+GET http://localhost:3000/amizades/4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjEsImlhdCI6MTcyOTk3MTQzMywiZXhwIjoxNzMwNTc2MjMzfQ.eDQnbNgSM6cFwV9yf8pCQCOrLKn43A50mYUnAmToOc0
+
+### GET obter todos os amizades do usuario de id 1
+GET http://localhost:3000/amizades/usuario/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjEsImlhdCI6MTcyOTk3MTQzMywiZXhwIjoxNzMwNTc2MjMzfQ.eDQnbNgSM6cFwV9yf8pCQCOrLKn43A50mYUnAmToOc0
+
+### GET obter todos os amizades
+GET http://localhost:3000/amizades
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjEsImlhdCI6MTcyOTk3MTQzMywiZXhwIjoxNzMwNTc2MjMzfQ.eDQnbNgSM6cFwV9yf8pCQCOrLKn43A50mYUnAmToOc0
+
+### POST criar amizade
+POST http://localhost:3000/amizades
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjEsImlhdCI6MTcyOTk3MTQzMywiZXhwIjoxNzMwNTc2MjMzfQ.eDQnbNgSM6cFwV9yf8pCQCOrLKn43A50mYUnAmToOc0
+content-type: application/json
+
+{
+  "id_emissor": 1,
+  "id_receptor": 3,
+  "aceito": false
+}
+
+### DELETE apagar amizade
+DELETE http://localhost:3000/amizades/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjEsImlhdCI6MTcyOTk3MTQzMywiZXhwIjoxNzMwNTc2MjMzfQ.eDQnbNgSM6cFwV9yf8pCQCOrLKn43A50mYUnAmToOc0
+content-type: application/json
+
+### PATCH alterar amizade
+PATCH http://localhost:3000/amizades/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSWQiOjEsImlhdCI6MTcyOTk3MTQzMywiZXhwIjoxNzMwNTc2MjMzfQ.eDQnbNgSM6cFwV9yf8pCQCOrLKn43A50mYUnAmToOc0
+content-type: application/json
+
+{
+  "aceito": true
+}
