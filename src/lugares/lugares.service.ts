@@ -3,9 +3,6 @@ import { CreateLugareDto } from './dto/create-lugare.dto';
 import { UpdateLugareDto } from './dto/update-lugare.dto';
 import { PersistenciaService } from 'src/persistencia/persistencia.service';
 
-
-
-
 @Injectable()
 export class LugaresService {
   constructor(private persistencia: PersistenciaService) {}

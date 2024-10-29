@@ -64,6 +64,23 @@ export class UsuariosService {
     }
   }
 
+  async findByUserName(userName: string){
+    const usuario = await this.persistencia.usuario.findUnique({
+      where: { userName },
+    });
+    if (usuario) {
+      return {
+        estado: 'ok',
+        dados: usuario,
+      };
+    } else {
+      return {
+        estado: 'nok',
+        mensagem: `O usuario @${userName} não existe!`,
+      };
+    }
+  }
+
   async update(id: number, updateUsuarioDto: UpdateUsuarioDto) {
 
     // if (updateUsuarioDto.senha) {
