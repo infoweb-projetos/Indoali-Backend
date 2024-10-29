@@ -20,9 +20,15 @@ export class UsuariosController {
   }
 
   @Get(':id')
-  @UseGuards(JwtAuthGuard, UserOwnershipGuard)
+  @UseGuards(JwtAuthGuard)//, UserOwnershipGuard)
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.usuariosService.findOne(id);
+  }
+
+  @Get('username/:userName')
+  @UseGuards(JwtAuthGuard)//, UserOwnershipGuard)
+  findByUserName(@Param('userName') userName: string) {
+    return this.usuariosService.findByUserName(userName);
   }
 
   @Patch(':id')
