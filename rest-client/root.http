@@ -79,3 +79,26 @@ content-type: application/json
 ### DELETE apagar lugar
 DELETE http://localhost:3000/lugares/3
 content-type: application/json
+
+### GET recupera todos os enderecos
+GET http://localhost:3000/enderecos/
+
+### GET recupera o endereco de id 1
+GET http://localhost:3000/enderecos/1
+
+### POST cria um novo endereco
+POST http://localhost:3000/enderecos
+{
+  "descricao":"rua serra da solidade 4404",
+  "cidade":"natalison",
+  "bairro":"nisiafloresrta",
+  "pais":"cazaquistao",
+  "detalhes":"perto do mc donalds",
+  "int_usuario":"1"
+}
+
+### DELETE apaga o endereco de id 1
+DELETE http://localhost:3000/enderecos/1
+
+### PATCH atualiza o endereco de id 1
+PATCH http://localhost:3000/enderecos/1

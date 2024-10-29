@@ -5,9 +5,10 @@ import { PersistenciaModule } from './persistencia/persistencia.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { AuthModule } from './auth/auth.module';
 import { LugaresModule } from './lugares/lugares.module';
+import { EnderecosModule } from './enderecos/enderecos.module';
 
 @Module({
-  imports: [PersistenciaModule, UsuariosModule, AuthModule, LugaresModule],
+  imports: [PersistenciaModule, UsuariosModule, AuthModule, LugaresModule, EnderecosModule],
   controllers: [AppController],
   providers: [AppService],
 })
