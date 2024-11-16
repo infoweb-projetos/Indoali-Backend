@@ -9,6 +9,21 @@ export class AmizadesService {
 
   async create(createAmizadeDto: CreateAmizadeDto) {
 
+    const existUsuario1 = await this.persistencia.usuario.findFirst({
+      where: {
+        id: createAmizadeDto.id_emissor,
+      },
+    });
+
+    const existUsuario2 = await this.persistencia.usuario.findFirst({
+      where: {
+        id: createAmizadeDto.id_receptor,
+      },
+    });
+
+    console.log(existUsuario1)
+    console.log(existUsuario2)
+
     const existAmizade = await this.persistencia.amizade.findFirst({
       where: {
         OR: [
@@ -31,9 +46,14 @@ export class AmizadesService {
     if (createAmizadeDto.id_emissor == createAmizadeDto.id_receptor){
       throw new BadRequestException('Você já é o seu melhor amigo');
     }
+
+    if (existUsuario1 || existUsuario2){
       return this.persistencia.amizade.create({
         data: createAmizadeDto,
       });
+    } else {
+      throw new BadRequestException('Esse usuário não existe');
+    }
   }
 
   async findAll() {

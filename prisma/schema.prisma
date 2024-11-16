@@ -35,5 +35,5 @@ model Amizade {
   id              Int      @id @default(autoincrement())
   id_emissor      Int      
   id_receptor     Int      
-  aceito          Boolean  
+  aceito          Boolean  @default(false)
 }
