@@ -37,3 +37,15 @@ model Amizade {
   id_receptor     Int      
   aceito          Boolean  @default(false)
 }
+
+model endereco {
+  id              Int      @id @default(autoincrement())
+  rua             String
+  numero          Int
+  cidade          String
+  bairro          String
+  estado          String
+  nome            String
+  detalhes        String?
+  id_usuario      Int
+}
