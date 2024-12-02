@@ -1,22 +1,29 @@
 import { Injectable } from '@nestjs/common';
-import { CreateLugareDto } from './dto/create-lugare.dto';
-import { UpdateLugareDto } from './dto/update-lugare.dto';
+import { CreateRoleDto } from './dto/create-role.dto';
+import { UpdateRoleDto } from './dto/update-role.dto';
 import { PersistenciaService } from 'src/persistencia/persistencia.service';
 
 @Injectable()
-export class LugaresService {
+export class RolesService {
   constructor(private persistencia: PersistenciaService) {}
-
-  async create(createLugareDto: CreateLugareDto) {
-    return this.persistencia.lugare.create({
-      data: createLugareDto,
+  
+  async create(createRoleDto: CreateRoleDto) {
+    return this.persistencia.role.create({
+      data: createRoleDto,
     });
   }
 
   async findAll() {
-    const lugares = await this.persistencia.lugare.findMany();
+    const roles = await this.persistencia.role.findMany();
     return {
-      lugares
+      roles
+    };
+  }
+
+  async findByUserId(id: number){
+    const roles = await this.persistencia.role.findMany();
+    return {
+      roles
     };
   }
 
@@ -37,20 +44,20 @@ export class LugaresService {
     }
   }
 
-  async update(id: number, updateLugareDto: UpdateLugareDto) {
-    return this.persistencia.lugare.update({
+  async update(id: number, updateRoleDto: UpdateRoleDto) {
+    return this.persistencia.role.update({
       where: { id },
-      data: updateLugareDto,
+      data: updateRoleDto,
     });
   }
 
   async remove(id: number) {
-    const lugare = await this.persistencia.lugare.delete({
+    const role = await this.persistencia.role.delete({
       where: { id },
     });
     return {
       estado: 'ok',
-      dados: lugare,
+      dados: role,
     };
   }
 }

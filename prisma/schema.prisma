@@ -18,6 +18,7 @@ model Usuario {
   descricao       String   @default("Olá, eu gosto muito de rolês")
   datacriacao     DateTime @default(now())
   senha           String
+
 }
 
 model Lugare {
@@ -40,7 +41,7 @@ model Amizade {
   aceito          Boolean  @default(false)
 }
 
-model endereco {
+model Endereco {
   id              Int      @id @default(autoincrement())
   rua             String
   numero          Int
@@ -50,4 +51,14 @@ model endereco {
   nome            String
   detalhes        String?
   id_usuario      Int
+}
+
+model Role {
+  id              Int      @id @default(autoincrement())
+  titulo          String   @default("Rolê legal")
+  criador_id      Int
+  lugare_id       Int
+  diasemana       String
+  datahora        DateTime
+  usuarios_id     String
 }

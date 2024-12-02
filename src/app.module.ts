@@ -8,9 +8,10 @@ import { LugaresModule } from './lugares/lugares.module';
 import { FavoritosModule } from './favoritos/favoritos.module';
 import { AmizadesModule } from './amizades/amizades.module';
 import { EnderecosModule } from './enderecos/enderecos.module';
+import { RolesModule } from './roles/roles.module';
 
 @Module({
-  imports: [PersistenciaModule, UsuariosModule, AuthModule, LugaresModule, FavoritosModule, AmizadesModule, EnderecosModule],
+  imports: [PersistenciaModule, UsuariosModule, AuthModule, LugaresModule, FavoritosModule, AmizadesModule, EnderecosModule, RolesModule],
   controllers: [AppController],
   providers: [AppService],
 })
