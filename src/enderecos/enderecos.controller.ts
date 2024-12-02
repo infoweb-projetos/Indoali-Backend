@@ -22,10 +22,10 @@ export class EnderecosController {
     return this.enderecosService.findOne(+id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateEnderecoDto: UpdateEnderecoDto) {
-    return this.enderecosService.update(+id, updateEnderecoDto);
-  }
+  // @Patch(':id')
+  // update(@Param('id') id: string, @Body() updateEnderecoDto: UpdateEnderecoDto) {
+  //   return this.enderecosService.update(+id, updateEnderecoDto);
+  // }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
