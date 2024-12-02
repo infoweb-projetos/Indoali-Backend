@@ -4,4 +4,6 @@ export class Usuario {
     userName: string;
     name: string;
     senha: string;
+    descricao: string;
+    datacriacao: Date;
 }

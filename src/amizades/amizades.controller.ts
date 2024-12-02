@@ -32,6 +32,12 @@ export class AmizadesController {
     return this.amizadesService.findByUserId(id);
   }
 
+  @Get(':id_user/:id_friend')
+  @UseGuards(JwtAuthGuard)
+  check(@Param('id_user', ParseIntPipe) id_user: number, @Param('id_friend', ParseIntPipe) id_friend: number){
+    return this.amizadesService.findByUsers(id_user, id_friend);
+  }
+
   @Patch(':id')
   @UseGuards(JwtAuthGuard)
   update(@Param('id', ParseIntPipe) id: number, @Body() updateAmizadeDto: UpdateAmizadeDto) {

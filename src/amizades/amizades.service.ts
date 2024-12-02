@@ -88,6 +88,18 @@ export class AmizadesService {
     }
   }
 
+  async findByUsers(id_user: number, id_friend: number){
+    const todos = await this.findByUserId(id_user);
+    const amizade = todos.amigosdousuario.find((amigo: any) => 
+      amigo.id_emissor ===  id_friend || amigo.id_receptor === id_friend
+    );
+    if (amizade){
+      return amizade
+    } else {
+      return null
+    }
+  }
+
   async update(id: number, updateAmizadeDto: UpdateAmizadeDto) {
     return this.persistencia.amizade.update({
       where: { id },
