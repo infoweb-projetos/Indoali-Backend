@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { CreateRoleDto } from './dto/create-role.dto';
 import { UpdateRoleDto } from './dto/update-role.dto';
 import { PersistenciaService } from 'src/persistencia/persistencia.service';
@@ -8,9 +8,19 @@ export class RolesService {
   constructor(private persistencia: PersistenciaService) {}
   
   async create(createRoleDto: CreateRoleDto) {
-    return this.persistencia.role.create({
-      data: createRoleDto,
+    const existUsuario = await this.persistencia.usuario.findFirst({
+      where: {
+        id: createRoleDto.criador_id,
+      },
     });
+    if (existUsuario){
+      return this.persistencia.role.create({
+        data: createRoleDto,
+      });
+    }
+    else{
+      throw new BadRequestException('Erro ao criar rolê');
+    }
   }
 
   async findAll() {
@@ -22,8 +32,9 @@ export class RolesService {
 
   async findByUserId(id: number){
     const roles = await this.persistencia.role.findMany();
+    const rolesdousuario = roles.filter(r => r.criador_id === id || r.usuarios_id.split(',').map(Number).includes(id));
     return {
-      roles
+      rolesdousuario
     };
   }
 
