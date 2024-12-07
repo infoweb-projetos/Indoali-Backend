@@ -8,7 +8,7 @@
 ## 🗂️ Repositórios
 
 - **Principal**: [Repositório Principal](https://github.com/infoweb-projetos/Indoali)
-- **Frontend (React):**: [Repositório Frontend](https://github.com/infoweb-projetos/Indoali-Frontend)
+- **Frontend (React)**: [Repositório Frontend](https://github.com/infoweb-projetos/Indoali-Frontend)
 
 ## 💻 Tecnologias Utilizadas
 
