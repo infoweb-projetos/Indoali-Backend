@@ -26,6 +26,10 @@ model Lugare {
   descricao       String?
   name            String
   endereco        String   
+  numero          String?
+  horarios        String?
+  instagram       String?
+  facebook        String?
 }
 
 model Favorito {
@@ -56,9 +60,15 @@ model Endereco {
 model Role {
   id              Int      @id @default(autoincrement())
   titulo          String   @default("Rolê legal")
-  criador_id      Int
-  lugare_id       Int
+  id_criador      Int
+  id_lugar        Int
   diasemana       String
   datahora        DateTime
-  usuarios_id     String
+}
+
+model UsuarioRole {
+  id              Int      @id @default(autoincrement())
+  id_role         Int      
+  id_usuario      Int      
+  aceito          Boolean  @default(false)
 }

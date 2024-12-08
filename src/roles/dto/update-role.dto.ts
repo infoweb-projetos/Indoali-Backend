@@ -5,6 +5,5 @@ export class UpdateRoleDto extends PartialType(CreateRoleDto) {
     titulo:string;
     diasemana:string;
     datahora:Date;
-    usuarios_id:string;
-    lugare_id:number;
+    id_lugar:number;
 }

@@ -28,7 +28,7 @@ export class RolesController {
   @Get('user/:id')
   @UseGuards(JwtAuthGuard)
   findByUserId(@Param('id') id: string) {
-    return this.rolesService.findByUserId(+id);
+    return this.rolesService.findByCriadorId(+id);
   }
 
   @Patch(':id')

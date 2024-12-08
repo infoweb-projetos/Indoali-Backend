@@ -10,7 +10,7 @@ export class RolesService {
   async create(createRoleDto: CreateRoleDto) {
     const existUsuario = await this.persistencia.usuario.findFirst({
       where: {
-        id: createRoleDto.criador_id,
+        id: createRoleDto.id_criador,
       },
     });
     if (existUsuario){
@@ -30,22 +30,32 @@ export class RolesService {
     };
   }
 
-  async findByUserId(id: number){
+  async findByCriadorId(id: number){
     const roles = await this.persistencia.role.findMany();
-    const rolesdousuario = roles.filter(r => r.criador_id === id || r.usuarios_id.split(',').map(Number).includes(id));
+    const rolesdousuario = roles.filter(r => r.id_criador === id);
     return {
       rolesdousuario
     };
   }
 
+  async findByUserId(id: number){
+    const roles = await this.persistencia.role.findMany();
+    const rolesrel = await this.persistencia.usuarioRole.findMany();
+    const rolesreluser = rolesrel.filter(r => r.id_usuario === id);
+    const rolesuser = roles.filter(role =>
+      rolesreluser.some(rel => rel.id_role === role.id)
+    );
+    return { rolesuser };
+  }
+
   async findOne(id: number) {
-    const lugare = await this.persistencia.lugare.findUnique({
+    const role = await this.persistencia.role.findUnique({
       where: { id },
     });
-    if (lugare) {
+    if (role) {
       return {
         estado: 'ok',
-        dados: lugare,
+        dados: role,
       };
     } else {
       return {
