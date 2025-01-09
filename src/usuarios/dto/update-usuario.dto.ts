@@ -6,4 +6,5 @@ export class UpdateUsuarioDto extends PartialType(CreateUsuarioDto) {
     name: string;
     senha: string;
     descricao: string;
+    fotoperfil: string;
 }

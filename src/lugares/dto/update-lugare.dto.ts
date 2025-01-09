@@ -5,4 +5,5 @@ export class UpdateLugareDto extends PartialType(CreateLugareDto) {
     descricao?: string;
     name: string;
     endereco: string;
+    fotoperfil?: string;
 }

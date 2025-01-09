@@ -3,6 +3,7 @@ import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
 import { PersistenciaService } from 'src/persistencia/persistencia.service';
 import * as bcrypt from 'bcrypt';
+import * as fs from 'fs';
 
 export const roundsOfHashing = 10;
 
@@ -124,12 +125,61 @@ export class UsuariosService {
   }
 
   async remove(id: number) {
+    
+    await this.removeFoto(id)
+
     const usuario = await this.persistencia.usuario.delete({
       where: { id },
     });
+
+    await this.persistencia.amizade.deleteMany({
+      where: {
+        OR: [
+          { id_emissor: id },
+          { id_receptor: id }
+        ]
+      }
+    });
+    await this.persistencia.favorito.deleteMany({
+      where: { id_usuario: id },
+    });
+
     return {
       estado: 'ok',
       dados: usuario,
     };
+  }
+
+  async uploadFoto(id: number, file: string){
+    const usuario = await this.findOne(id)
+    if (usuario.estado == 'ok') {
+      await this.removeFoto(id)
+      usuario.dados.fotoperfil = file
+      //console.log(usuario.dados.fotoperfil)
+      return this.persistencia.usuario.update({
+        where: { id },
+        data: usuario.dados,
+      });
+    }
+  }
+
+  async removeFoto(id:number) {
+    const usuario = await this.findOne(id)
+    if (usuario.estado == 'ok') {
+      //console.log(`../../uploads/${usuario.dados.fotoperfil}`)
+
+      if (usuario.dados.fotoperfil){
+        fs.unlink(`uploads/${usuario.dados.fotoperfil}`, (err) => {
+          if (err) {
+            console.log('Erro ao deletar arquivo.');
+          }
+        });
+        usuario.dados.fotoperfil = null
+      }
+      return this.persistencia.usuario.update({
+        where: { id },
+        data: usuario.dados,
+      });
+    }
   }
 }

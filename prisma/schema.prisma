@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  url = env("DATABASE_URL") //"file:./dev.db"
 }
 
 model Usuario {
@@ -18,7 +18,7 @@ model Usuario {
   descricao       String   @default("Olá, eu gosto muito de rolês")
   datacriacao     DateTime @default(now())
   senha           String
-
+  fotoperfil      String?
 }
 
 model Lugare {
@@ -30,6 +30,7 @@ model Lugare {
   horarios        String?
   instagram       String?
   facebook        String?
+  fotoperfil      String?
 }
 
 model Favorito {

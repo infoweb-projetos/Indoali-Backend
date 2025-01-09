@@ -9,9 +9,12 @@ import { FavoritosModule } from './favoritos/favoritos.module';
 import { AmizadesModule } from './amizades/amizades.module';
 import { EnderecosModule } from './enderecos/enderecos.module';
 import { RolesModule } from './roles/roles.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
-  imports: [PersistenciaModule, UsuariosModule, AuthModule, LugaresModule, FavoritosModule, AmizadesModule, EnderecosModule, RolesModule],
+  imports: [ServeStaticModule.forRoot({rootPath: join(__dirname, '..', '..', 'uploads'), serveRoot: '/uploads/'}),
+  PersistenciaModule, UsuariosModule, AuthModule, LugaresModule, FavoritosModule, AmizadesModule, EnderecosModule, RolesModule],
   controllers: [AppController],
   providers: [AppService],
 })

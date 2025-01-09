@@ -6,4 +6,5 @@ export class Usuario {
     senha: string;
     descricao: string;
     datacriacao: Date;
+    fotoperfil: string;
 }

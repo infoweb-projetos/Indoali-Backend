@@ -13,8 +13,8 @@ export class UserOwnershipGuard implements CanActivate {
       const user = request.user;
       const userIdFromToken = user.dados.id; // id no token
       const userIdFromRequest = +request.params.id; // id do usuário na rota
-    //   console.log(userIdFromToken)
-    //   console.log(userIdFromRequest)
+       //console.log(userIdFromToken)
+       //console.log(userIdFromRequest)
     
       if (userIdFromToken !== userIdFromRequest) {
         throw new ForbiddenException('Você não tem permissão para acessar este recurso.');
