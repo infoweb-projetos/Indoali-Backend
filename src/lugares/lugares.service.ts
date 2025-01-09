@@ -53,4 +53,16 @@ export class LugaresService {
       dados: lugare,
     };
   }
+
+  async promocoes(){
+    try {
+    const lugares = await this.persistencia.lugare.findMany({
+      where: { promocao: { not: null} }
+    });
+    return {
+      lugares
+    }} catch{
+      return null
+    }
+  }
 }

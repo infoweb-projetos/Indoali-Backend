@@ -31,4 +31,9 @@ export class LugaresController {
   remove(@Param('id') id: string) {
     return this.lugaresService.remove(+id);
   }
+
+  @Get('promo/coes')
+  promocoes() {
+    return this.lugaresService.promocoes();
+  }
 }

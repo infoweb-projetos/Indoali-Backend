@@ -31,6 +31,8 @@ model Lugare {
   instagram       String?
   facebook        String?
   fotoperfil      String?
+  galeria         String? //divididas por espaço " "
+  promocao        String?
 }
 
 model Favorito {
