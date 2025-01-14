@@ -28,7 +28,7 @@ export class RolesController {
   @Get('user/:id')
   @UseGuards(JwtAuthGuard)
   findByUserId(@Param('id') id: string) {
-    return this.rolesService.findByCriadorId(+id);
+    return this.rolesService.findByUserId(+id);
   }
 
   @Patch(':id')
@@ -41,5 +41,11 @@ export class RolesController {
   @UseGuards(JwtAuthGuard)
   remove(@Param('id') id: string) {
     return this.rolesService.remove(+id);
+  }
+
+  @Get(':id/users')
+  @UseGuards(JwtAuthGuard)
+  findUsersRole(@Param('id') id: number) {
+    return this.rolesService.findUsersRole(+id);
   }
 }
